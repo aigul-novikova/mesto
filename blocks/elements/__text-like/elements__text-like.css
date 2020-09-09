@@ -1,0 +1,7 @@
+.elements__text-like {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 21px;
+    padding-right: 15px;
+}

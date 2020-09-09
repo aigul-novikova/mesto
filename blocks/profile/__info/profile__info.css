@@ -1,0 +1,6 @@
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+    margin-left: 27px;
+}
