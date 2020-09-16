@@ -2,6 +2,6 @@
     background-color: white;
     display: flex;
     justify-content: space-between;
-    padding-left: 21px;
-    padding-right: 15px;
+    margin: 25px 21px 31px;
+    align-items: center;
 }
