@@ -1,12 +1,12 @@
 const popup = document.querySelector('.popup');
 const profileEditButton = document.querySelector('.profile__edit-button');
 function addPopupEditForm() {
-    popup.classList.add('popup__edit-form');
+    popup.classList.add('popup_edit-form');
 }
 
 const popupCloseButton = popup.querySelector('.popup__close-button');
 function deletePopupEditForm() {
-    popup.classList.remove('popup__edit-form');
+    popup.classList.remove('popup_edit-form');
     form.name.value = '';
 }
 let form = document.forms.new;
