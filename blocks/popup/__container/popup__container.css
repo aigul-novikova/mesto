@@ -2,7 +2,9 @@
     position: relative;
     margin: auto;
     padding: 36px 36px 0 0;
+    opacity: 1;
 }
+
 @media screen and (max-width: 508px){
     .popup__container {
         width: calc(100% - 38px);
