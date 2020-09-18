@@ -1,8 +1,8 @@
 const popup = document.querySelector('.popup');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const popupSaveButton = document.querySelector('.popup__save-button');
-const nameInput = document.querySelector('.input_edit-name');
-const jobInput = document.querySelector('.input_edit-job');
+const nameInput = document.querySelector('.popup__input_edit-name');
+const jobInput = document.querySelector('.popup__input_edit-job');
 const userName = document.querySelector('.profile__name');
 const userJob = document.querySelector('.profile__job');
 function addPopupEditForm() {
@@ -27,11 +27,12 @@ function formSubmitHandler (evt) {
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
 
+    deletePopupEditForm()
+
 }
 
 
 // Прикрепляем обработчик к форме:
 profileEditButton.addEventListener('click', addPopupEditForm);
 popupCloseButton.addEventListener('click', deletePopupEditForm);
-popupSaveButton.addEventListener('click', deletePopupEditForm);
 formElement.addEventListener('submit', formSubmitHandler);
