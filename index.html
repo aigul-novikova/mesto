@@ -26,48 +26,16 @@
         </section>
         <!--Секция с фото-->
         <section class="elements">
-            <div class="elements__group">
-                <img class="elements__image" src="./images/elements_image_one.jpeg" alt="Карачаевск">
-                <div class="elements__text-like">
-                    <h2 class="elements__text">Карачаевскxcvbnmlkjhgfdfghjk</h2>
-                    <button class="elements__button-like" type="button" aria-label="Нравится"></button>
+            <template id="elements__add">
+                <div class="elements__group">
+                    <img class="elements__image" src="#" alt="#">
+                    <button class="elements__image-delete" type="button" aria-label="удалить картинку"></button>
+                    <div class="elements__text-like">
+                        <h2 class="elements__text"></h2>
+                        <button class="elements__button-like" type="button" aria-label="Нравится"></button>
+                    </div>
                 </div>
-            </div>
-            <div class="elements__group">
-                <img class="elements__image" src="./images/elements_image_two.jpeg" alt="Эльбрус">
-                <div class="elements__text-like">
-                    <h2 class="elements__text">Эльбрус</h2>
-                    <button class="elements__button-like" type="button" aria-label="Нравится"></button>
-                </div>
-            </div>
-            <div class="elements__group">
-                <img class="elements__image" src="./images/elements_image_three.jpeg" alt="Домбай">
-                <div class="elements__text-like">
-                    <h2 class="elements__text">Домбай</h2>
-                    <button class="elements__button-like" type="button" aria-label="Нравится"></button>
-                </div>
-            </div>
-            <div class="elements__group">
-                <img class="elements__image" src="./images/elements_image_four.jpeg" alt="Эльбрус">
-                <div class="elements__text-like">
-                    <h2 class="elements__text">Эльбрус</h2>
-                    <button class="elements__button-like" type="button" aria-label="Нравится"></button>
-                </div>
-            </div>
-            <div class="elements__group">
-                <img class="elements__image" src="./images/elementa_image_five.jpeg" alt="Домбай">
-                <div class="elements__text-like">
-                    <h2 class="elements__text">Домбай</h2>
-                    <button class="elements__button-like" type="button" aria-label="Нравится"></button>
-                </div>
-            </div>
-            <div class="elements__group">
-                <img class="elements__image" src="./images/elements_image_six.jpeg" alt="Карачаево-Черкесия">
-                <div class="elements__text-like">
-                    <h2 class="elements__text">Карачаево-Черкесия</h2>
-                    <button class="elements__button-like" type="button" aria-label="Нравится"></button>
-                </div>
-            </div>
+            </template>
         </section>
     </main>
     <footer class="footer">
@@ -81,15 +49,41 @@
         <fieldset class="popup__fieldset">
             <legend class="popup__title">Редактировать профиль</legend>
             <label class="popup__form">
-                <input class="popup__input popup__input_edit-name" id="input-edit-name" name="name" type="text" placeholder="Имя" minlength="2" maxlength="40" required>
+                <input class="popup__input popup__input_edit-name" id="input-edit-name" name="name" type="text" placeholder="Имя" required>
             </label>
             <label class="popup__form">
-                <input class="popup__input popup__input_edit-job" id="input-edit-job" name="job" type="text" placeholder="О себе" minlength="2" maxlength="40" required>
+                <input class="popup__input popup__input_edit-job" id="input-edit-job" name="job" type="text" placeholder="О себе" required>
             </label>
         </fieldset>
         <button type="submit" class="popup__save-button">Сохранить</button>
       </form>
     </div>
+  </div>
+  <div class="popup-add">
+    <div class="popup__container">
+      <button type="button" class="popup-add__close-button" aria-label="Закрыть"></button>
+      <form class="popup__form-container popup__form-container_image" name="edit-form-image" action="#" method="GET" novalidate>
+        <fieldset class="popup__fieldset">
+            <legend class="popup__title">Новое место</legend>
+            <label class="popup__form">
+                <input class="popup__input popup__input_edit-image-name" id="input-edit-name" name="name" type="text" placeholder="Название" required>
+            </label>
+            <label class="popup__form">
+                <input class="popup__input popup__input_edit-link" id="input-edit-job" name="link" type="text" placeholder="Ссылка на картинку" required>
+            </label>
+        </fieldset>
+        <button type="submit" class="popup-add__create">Создать</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup-image">
+        <div class='popup-image__container'>
+            <button type="button" class="popup-image__close-button" aria-label="Закрыть"></button>
+            <figure class='popup-image__box'>
+                <img src='#' alt='' class="popup-image__image">
+                <p class="popup-image__name"></p>
+            </figure>
+        </div>
   </div>
 <script src="./script/index.js"></script>
 </body>

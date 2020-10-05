@@ -6,6 +6,7 @@
     grid-row-gap: 20px;
     width: calc(100% - 38px);
     margin: 47px auto;
+    grid-auto-rows: 1fr;
 }
 @media screen and (max-width: 618px) {
     .elements {
