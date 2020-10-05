@@ -36,7 +36,7 @@ const profileAddButton = document.querySelector('.profile__add-button');
 const popupAdd = document.querySelector('.popup-add');
 const popupImage = document.querySelector('.popup-image');
 const popupImageImage = document.querySelector('.popup-image__image');
-const popupImageClose = document.querySelector('.popup-image__close-button');
+const popupImageClose = document.querySelector('.popup__close-button_open-image');
 const popupImageNames = document.querySelector('.popup-image__name');
 const elementsImage = document.querySelector('.elements__image');
 
@@ -102,7 +102,7 @@ function addImage(name, link){
 initialCards.forEach(card => addImage(card.name, card.link));
 
 //popup add images
-const popupAddCloseButton = document.querySelector('.popup-add__close-button');
+const popupAddCloseButton = document.querySelector('.popup__close-button_add-image');
 const popupImageName = document.querySelector('.popup__input_edit-image-name');
 const popupLink = document.querySelector('.popup__input_edit-link');
 const popupAddCreate = document.querySelector('.popup-add__create');
