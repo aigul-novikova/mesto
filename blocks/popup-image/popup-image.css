@@ -8,7 +8,7 @@
     top: 0;
     right: 0;
     z-index: 1;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.9);
     transition: visibility .5s linear,opacity .5s linear;
     font-family: 'Inter', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
