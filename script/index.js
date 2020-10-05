@@ -74,6 +74,7 @@ function addImage(name, link){
 
     elementsAddNew.querySelector('.elements__text').textContent = name;
     elementsAddNew.querySelector('.elements__image').src = link;
+    elementsAddNew.querySelector('.elements__image').alt = name;
     //like
     elementsAddNew.querySelector('.elements__button-like').addEventListener('click', function(evt){
         evt.target.classList.toggle('elements__button-like_activ');
@@ -86,7 +87,9 @@ function addImage(name, link){
     elementsAddNew.querySelector('.elements__image').addEventListener('click', () => {
         popupImage.classList.add('popup-image_open');
         popupImageImage.src = link;
+        popupImageImage.alt = name;
         popupImageNames.textContent = name;
+
 
     });
     //зaкрытие картинки 
