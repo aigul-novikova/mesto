@@ -102,7 +102,7 @@ function createImage(name, link){
 initialCards.forEach(card => elements.append(createImage(card.name, card.link)));
 
 //добавление карточки 
-formElementImage.addEventListener('submit', function (evt) { 
+ function addImage (evt) { 
     const newImage = createImage(popupImageName.value, popupLink.value);
     popupImageName.value = '';
     popupLink.value = '';
@@ -110,7 +110,7 @@ formElementImage.addEventListener('submit', function (evt) {
     evt.preventDefault();    
     closePopup(popupAdd);
     elements.prepend(newImage);
-});
+}
 
 // Слушатели:
 profileEditButton.addEventListener('click', addPopupEditForm);
@@ -119,5 +119,6 @@ formElement.addEventListener('submit', processFormSubmitHandler);
 profileAddButton.addEventListener('click', () => openPopup(popupAdd));
 popupCloseButtonAdd.addEventListener('click', () => closePopup (popupAdd));
 popupImageClose.addEventListener('click', () => closePopup (popupImage));
+formElementImage.addEventListener('submit', addImage);
 
 
