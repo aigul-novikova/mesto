@@ -25,7 +25,7 @@ const initialCards = [
     }
 ];
 
-const popupUserName = document.querySelector('.popup');
+const popupUserName = document.querySelector('.popup-user-name');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const nameInput = document.querySelector('.popup__input_edit-name');
 const jobInput = document.querySelector('.popup__input_edit-job');
@@ -48,12 +48,12 @@ const elementsAdd = document.querySelector('#elements__add').content;
 const elements = document.querySelector('.elements');
 
 //функция открытия попапа
-function openPopup (open) {
-    open.classList.add('popup_edit-form');
+function openPopup (popup) {
+    popup.classList.add('popup_opened');
 }
 //функция закрытия попапа
-function closePopup (close) {
-    close.classList.remove('popup_edit-form');
+function closePopup (popup) {
+    popup.classList.remove('popup_opened');
 }
 
 //функция отображающая имя пользователя в попапе
