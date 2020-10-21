@@ -25,9 +25,8 @@ const initialCards = [
     }
 ];
 
-const popup = document.querySelector('.popup');
+const popupUserName = document.querySelector('.popup');
 const profileEditButton = document.querySelector('.profile__edit-button');
-const popupSaveButton = document.querySelector('.popup__save-button');
 const nameInput = document.querySelector('.popup__input_edit-name');
 const jobInput = document.querySelector('.popup__input_edit-job');
 const userName = document.querySelector('.profile__name');
@@ -37,44 +36,51 @@ const popupAdd = document.querySelector('.popup-add');
 const popupImage = document.querySelector('.popup-image');
 const popupImageImage = document.querySelector('.popup-image__image');
 const popupImageClose = document.querySelector('.popup__close-button_open-image');
+const popupCloseButtonUser = document.querySelector('.popup__close-button_user');
+const popupCloseButtonAdd = document.querySelector('.popup__close-button_add-image');
 const popupImageNames = document.querySelector('.popup-image__name');
-const elementsImage = document.querySelector('.elements__image');
+const popupAddCloseButton = document.querySelector('.popup__close-button_add-image');
+const popupImageName = document.querySelector('.popup__input_edit-image-name');
+const popupLink = document.querySelector('.popup__input_edit-link');
+const formElementImage = document.querySelector('.popup__form-container_image');
+const formElement = document.querySelector('.popup__form-container');
+const elementsAdd = document.querySelector('#elements__add').content;
+const elements = document.querySelector('.elements');
 
+//функция открытия попапа
+function openPopup (open) {
+    open.classList.add('popup_edit-form');
+}
+//функция закрытия попапа
+function closePopup (close) {
+    close.classList.remove('popup_edit-form');
+}
+
+//функция отображающая имя пользователя в попапе
 function addPopupEditForm() {
-    popup.classList.add('popup_edit-form');
+    openPopup(popupUserName);
     nameInput.value = userName.textContent;
     jobInput.value = userJob.textContent;
 }
 
-const popupCloseButton = popup.querySelector('.popup__close-button');
-function deletePopupEditForm() {
-    popup.classList.remove('popup_edit-form');
-}
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
-// Находим форму в DOM
-const formElement = document.querySelector('.popup__form-container');
-
-function formSubmitHandler (evt) {
+//"сохранить"
+function processFormSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
     
-    // Вставьте новые значения с помощью textContent
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
 
-    deletePopupEditForm();
+    closePopup(popupUserName);
 }
 
-
 //images
-function addImage(name, link){
-    const elementsAdd = document.querySelector('#elements__add').content;
-    const elements = document.querySelector('.elements');
+function createImage(name, link){
     const elementsAddNew = elementsAdd.cloneNode(true);
+    const elementsImage = elementsAddNew.querySelector('.elements__image');
 
     elementsAddNew.querySelector('.elements__text').textContent = name;
-    elementsAddNew.querySelector('.elements__image').src = link;
-    elementsAddNew.querySelector('.elements__image').alt = name;
+    elementsImage.src = link;
+    elementsImage.alt = name;
     //like
     elementsAddNew.querySelector('.elements__button-like').addEventListener('click', function(evt){
         evt.target.classList.toggle('elements__button-like_activ');
@@ -84,57 +90,34 @@ function addImage(name, link){
         elements.removeChild(evt.target.parentNode);
     });
     //открытие картинки
-    elementsAddNew.querySelector('.elements__image').addEventListener('click', () => {
-        popupImage.classList.add('popup-image_open');
+    elementsImage.addEventListener('click', () => {
+        openPopup (popupImage);
         popupImageImage.src = link;
         popupImageImage.alt = name;
         popupImageNames.textContent = name;
-
-
     });
-    //зaкрытие картинки 
-    popupImageClose.addEventListener('click', () => {
-        popupImage.classList.remove('popup-image_open');
-    })
     
-    elements.prepend(elementsAddNew);
+    return elementsAddNew;
 }
-initialCards.forEach(card => addImage(card.name, card.link));
+initialCards.forEach(card => elements.append(createImage(card.name, card.link)));
 
-//popup add images
-const popupAddCloseButton = document.querySelector('.popup__close-button_add-image');
-const popupImageName = document.querySelector('.popup__input_edit-image-name');
-const popupLink = document.querySelector('.popup__input_edit-link');
-const popupAddCreate = document.querySelector('.popup-add__create');
-const formElementImage = document.querySelector('.popup__form-container_image');
-//open & close popup-add
-function addPopupAddForm() {
-    popupAdd.classList.add('popup-add_form');
-}
-function deletePopupAddForm() {
-    popupAdd.classList.remove('popup-add_form');
-
-}
-
-//добавление карточки
+//добавление карточки 
 formElementImage.addEventListener('submit', function (evt) { 
-    addImage(popupImageName.value, popupLink.value);
+    const newImage = createImage(popupImageName.value, popupLink.value);
     popupImageName.value = '';
     popupLink.value = '';
 
     evt.preventDefault();    
-    deletePopupAddForm();
-
-    
+    closePopup(popupAdd);
+    elements.prepend(newImage);
 });
 
-
-
-// Прикрепляем обработчик к форме:
+// Слушатели:
 profileEditButton.addEventListener('click', addPopupEditForm);
-popupCloseButton.addEventListener('click', deletePopupEditForm);
-formElement.addEventListener('submit', formSubmitHandler);
+popupCloseButtonUser.addEventListener('click', () => closePopup (popupUserName));
+formElement.addEventListener('submit', processFormSubmitHandler);
+profileAddButton.addEventListener('click', () => openPopup(popupAdd));
+popupCloseButtonAdd.addEventListener('click', () => closePopup (popupAdd));
+popupImageClose.addEventListener('click', () => closePopup (popupImage));
 
-profileAddButton.addEventListener('click', addPopupAddForm);
-popupAddCloseButton.addEventListener('click', deletePopupAddForm);
 
